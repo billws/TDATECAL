@@ -12,7 +12,7 @@
 
 ## Demo
 
-Here is a working live demo :  https://billws.github.io/TDATECAL/index.html
+Here is a working live demo :  https://billws.github.io/TDATECAL/
 
 
 ## Application
