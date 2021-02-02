@@ -1,3 +1,5 @@
+$select-color: #db3d44;
+$outside-color: #eeeeee;
 $year-month-rows: (1, 2, 3, 4);
 $date-rows: (1, 2, 3, 4, 5, 6, 7);
 @mixin nth-year-month {
@@ -23,6 +25,13 @@ body {
     background-color: white;
 }
 
+#demo1{
+    height: 450px;
+}
+#demo2{
+    height: 450px;
+}
+
 * {
     box-sizing: border-box;
     font-size: 14px;
@@ -40,7 +49,7 @@ li {
     line-height: 2.5em;
 }
 li:hover {
-    background-color: #eeeeee;
+    background-color: $outside-color;
     color: black;
     cursor: pointer;
 }
@@ -148,7 +157,7 @@ li:hover {
         }
 
         .cal-head-arrow:hover {
-            background-color: #eeeeee;
+            background-color: $outside-color;
             color: black;
             cursor: pointer;
         }
@@ -159,7 +168,7 @@ li:hover {
             line-height: 2.5em;
         }
         .cal-head-title:hover {
-            background-color: #eeeeee;
+            background-color: $outside-color;
             color: black;
             cursor: pointer;
         }
@@ -171,7 +180,7 @@ li:hover {
 
     .choose-date::before {
         content: "";
-        background-color: #db3d44;
+        background-color: $select-color;
         width: 1.5em;
         height: 1.5em;
         border-radius: 0.75em;
@@ -191,7 +200,7 @@ li:hover {
 
     .choose-month::before {
         content: "";
-        background-color: #db3d44;
+        background-color: $select-color;
         width: 2.5em;
         height: 2.5em;
         border-radius: 1.25em;
@@ -206,13 +215,13 @@ li:hover {
     }
 
     .today {
-        color: #db3d44;
+        color: $select-color;
     }
 
     .inside {
         color: black;
     }
     .outside {
-        color: #eeeeee;
+        color: $outside-color;
     }
 }

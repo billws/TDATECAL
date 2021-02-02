@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { ViewType, MonthsOfYear } from "../utils/calendar";
+import { ViewType, MonthsOfYear, MinYear, MaxYear } from "../utils/calendar";
 import PropTypes from "prop-types";
 
 const SelectMonth = (month, index, viewState, changeViewState, currentYear, selectedDate) => {
     let className = `calendar-month-${Math.floor(index / 4) + 1}`;
     let displayMonth = month.slice(0, 3);
-    if (index === selectedDate.getMonth() && currentYear === selectedDate.getFullYear()) {
+    if (selectedDate && index === selectedDate.getMonth() && currentYear === selectedDate.getFullYear()) {
         className += " choose-month";
     }
     const monthClick = () => {
@@ -26,14 +26,22 @@ SelectMonth.propTypes = {
 
 
 const TMonth = ({ viewState, changeViewState, selectedDate }) => {
-    const [currentYear, setCurrentYear] = useState(selectedDate.getFullYear());
+    const [currentYear, setCurrentYear] = useState(viewState.year);
     const titleClick = () => {
         changeViewState({ ...viewState, viewState: ViewType.Year });
     }
     const previousYear = () => {
+        if (currentYear - 1 < MinYear) {
+            alert("Can not select below 1700s.");
+            return;
+        }
         setCurrentYear(currentYear => currentYear - 1);
     }
     const nextYear = () => {
+        if (currentYear + 1 > MaxYear) {
+            alert("Can not select over 2199s.");
+            return;
+        }
         setCurrentYear(currentYear => currentYear + 1);
     }
     return (

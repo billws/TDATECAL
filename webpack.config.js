@@ -53,7 +53,8 @@ module.exports = {
                     <meta charset="utf-8"/>
                 </head>
                 <body>
-                <div id="Calendar"></div>
+                <div id="demo1"><div id="Calendar"></div></div>
+                <div id="demo2"><div id="CalendarInput"></div></div>
                 </body>
             </html>
             `
