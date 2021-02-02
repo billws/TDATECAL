@@ -1,0 +1,218 @@
+$year-month-rows: (1, 2, 3, 4);
+$date-rows: (1, 2, 3, 4, 5, 6, 7);
+@mixin nth-year-month {
+    @each $row in $year-month-rows {
+        $index: index($year-month-rows, $row);
+        &:nth-child(#{length($year-month-rows)}n + #{$index}) {
+            -ms-grid-column: $index % 5;
+        }
+    }
+}
+
+@mixin nth-date {
+    @each $row in $date-rows {
+        $index: index($date-rows, $row);
+        &:nth-child(#{length($date-rows)}n + #{$index}) {
+            -ms-grid-column: $index % 8;
+        }
+    }
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    background-color: white;
+}
+
+* {
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+li {
+    padding: 2px;
+    position: relative;
+    line-height: 2.5em;
+}
+li:hover {
+    background-color: #eeeeee;
+    color: black;
+    cursor: pointer;
+}
+
+.calendar-wrapper {
+    max-width: 280px;
+    min-width: 255px;
+    font: 100% system-ui;
+    box-shadow: 0px 0px 1px 0px #888888;
+    padding: 16px 8px;
+    position: absolute;
+    .calendar-year {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr;
+    }
+
+    .calendar-month {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr;
+    }
+
+    .calendar-month-1 {
+        @include nth-year-month;
+        -ms-grid-row: 1;
+    }
+
+    .calendar-month-2 {
+        @include nth-year-month;
+        -ms-grid-row: 2;
+    }
+
+    .calendar-month-3 {
+        @include nth-year-month;
+        -ms-grid-row: 3;
+    }
+
+    .calendar-month-4 {
+        @include nth-year-month;
+        -ms-grid-row: 4;
+    }
+
+    .calendar-date {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+    .calendar-date-1 {
+        @include nth-date;
+        -ms-grid-row: 1;
+    }
+    .calendar-date-2 {
+        @include nth-date;
+        -ms-grid-row: 2;
+    }
+    .calendar-date-3 {
+        @include nth-date;
+        -ms-grid-row: 3;
+    }
+    .calendar-date-4 {
+        @include nth-date;
+        -ms-grid-row: 4;
+    }
+    .calendar-date-5 {
+        @include nth-date;
+        -ms-grid-row: 5;
+    }
+    .calendar-date-6 {
+        @include nth-date;
+        -ms-grid-row: 6;
+    }
+    .calendar-date-7 {
+        @include nth-date;
+        -ms-grid-row: 7;
+    }
+    .cal-head {
+        display: flex;
+        align-items: center;
+
+        .cal-head-arrow {
+            flex: 20px;
+            text-align: center;
+            padding: 10;
+            .head-arrow {
+                border: solid black;
+                border-width: 0 1px 1px 0;
+                display: inline-block;
+                padding: 3px;
+            }
+
+            .right-arrow {
+                transform: rotate(-45deg);
+            }
+
+            .left-arrow {
+                transform: rotate(135deg);
+            }
+        }
+
+        .cal-head-arrow:hover {
+            background-color: #eeeeee;
+            color: black;
+            cursor: pointer;
+        }
+
+        .cal-head-title {
+            flex: 1 1 100%;
+            text-align: center;
+            line-height: 2.5em;
+        }
+        .cal-head-title:hover {
+            background-color: #eeeeee;
+            color: black;
+            cursor: pointer;
+        }
+    }
+
+    .choose-date {
+        color: white;
+    }
+
+    .choose-date::before {
+        content: "";
+        background-color: #db3d44;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 0.75em;
+        display: inline-block;
+        position: absolute;
+        z-index: -1;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .choose-month {
+        color: white;
+    }
+
+    .choose-month::before {
+        content: "";
+        background-color: #db3d44;
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 1.25em;
+        display: inline-block;
+        position: absolute;
+        z-index: -1;
+        margin: auto;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .today {
+        color: #db3d44;
+    }
+
+    .inside {
+        color: black;
+    }
+    .outside {
+        color: #eeeeee;
+    }
+}
