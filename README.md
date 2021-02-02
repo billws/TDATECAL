@@ -19,8 +19,9 @@ Here is a working live demo :  https://billws.github.io/TDATECAL/
 
 ### List all API properties of the Calendar component. 
 
-Name        Type            Default             Description
-----------------------------------------------------------------------------------
-date        date object     null                Default selected date.
-onSelected  function(date)  null                Called when a date is selected.
-display     bool            false               Display Calendar.
+| Name        | Type           | Default  | Description                     |
+| ----------- |:--------------:| :-------:| :------------------------------:|
+| date        | date object    | null     | Default selected date.          |
+| onSelected  | function(date) | null     | Called when a date is selected. |
+| display     | bool           | false    | Display Calendar.               |
+
