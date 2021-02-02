@@ -15,6 +15,10 @@ export const MonthsOfYear = [
     "December"
 ];
 
+export const MinYear = 1700;
+export const MaxYear = 2199;
+export const DecadeNumber = 10;
+
 export const DaysOfWeek = {
     "Sunday": "Sunday",
     "Monday": "Monday",
